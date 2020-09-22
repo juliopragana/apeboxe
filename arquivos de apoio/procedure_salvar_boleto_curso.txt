@@ -1,0 +1,20 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_boleto_curso_save`(
+    pcodigo VARCHAR(45),
+    preferencia VARCHAR(80),
+    pdata_vencimento VARCHAR(45),
+    pvalor VARCHAR(45),
+    plinkdownload VARCHAR(300),
+    pbarcodeNumber VARCHAR(45),
+    pstatus_boleto INT(5),
+    pid_atleta INT(5)
+    
+    )
+BEGIN 
+        
+        INSERT INTO tb_boleto_curso (codigo, referencia, data_vencimento, valor, linkdownload, barcodeNumber, status_boleto, id_atleta) 
+                    VALUES (pcodigo, preferencia, pdata_vencimento, pvalor, plinkdownload, pbarcodeNumber, pstatus_boleto, pid_atleta); 
+        
+                     
+        SELECT * FROM tb_curso a INNER JOIN tb_boleto_curso b USING(id_atleta) WHERE b.id_atleta = pid_atleta;
+
+    END

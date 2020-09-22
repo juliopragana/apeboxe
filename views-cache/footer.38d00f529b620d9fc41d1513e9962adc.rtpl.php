@@ -1,0 +1,107 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><footer class="site-footer">
+  <div class="container">
+    
+
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h3 class="footer-heading mb-4 text-white">APEBOXE - Associação Pernambucana de Boxe</h3>
+      </div>
+                
+     </div>
+    <div class="row pt-5 mt-5 text-center">
+      <div class="col-md-12">
+        <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy; <script>document.write(new Date().getFullYear());</script> All Rights Reserved <a href="http://jpragana.com">Jpragana</a> | Template by <a href="https://colorlib.com" target="_blank" >Colorlib</a> | Imagens: <a href="https://br.freepik.com" target="_blank"> freepik</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+</div>
+
+
+
+
+
+
+<script>
+
+
+var upload = document.getElementById("image");
+
+
+
+upload.addEventListener("change", function(e) {
+
+    var size = upload.files[0].size;
+
+    if(size < 2048576) { //2MB      
+
+    } else {           
+
+      alert('Imagem tem que ter no máximo 2 MB'); //Acima do limite
+
+      upload.value = ""; //Limpa o campo          
+
+    }
+
+    e.preventDefault();
+
+});
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+
+  
+
+  <script src="/res/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="/res/lib/typed/typed.js"></script>
+
+  <script src="/res/lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <script src="/res/lib/magnific-popup/magnific-popup.min.js"></script>
+
+  <script src="/res/lib/isotope/isotope.pkgd.min.js"></script>
+ 
+  <script src="/res/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/res/js/jquery-ui.js"></script>
+  <script src="/res/js/popper.min.js"></script>
+  <script src="/res/js/bootstrap.min.js"></script>
+  <script src="/res/js/owl.carousel.min.js"></script>
+  <script src="/res/js/jquery.stellar.min.js"></script>
+  <script src="/res/js/jquery.countdown.min.js"></script>
+  <script src="/res/js/jquery.magnific-popup.min.js"></script>
+  <script src="/res/js/bootstrap-datepicker.min.js"></script>
+  <script src="/res/js/aos.js"></script>
+
+  <script src="/res/js/main.js"></script>
+
+ 
+
+ 
+
+</body>
+
+
+
+</html>

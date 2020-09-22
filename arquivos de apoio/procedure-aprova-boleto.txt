@@ -1,0 +1,16 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_aprovar_boleto`(
+    pcodigo VARCHAR(45),
+    pid_atleta INT(5)
+    )
+    BEGIN 
+        
+       
+        UPDATE tb_boleto_curso SET 
+            status_boleto = 2
+        WHERE codigo = pcodigo;
+    
+        UPDATE tb_curso SET
+            status_inscricao = 2
+        WHERE id_atleta = pid_atleta;
+
+    END

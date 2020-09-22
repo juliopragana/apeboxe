@@ -1,0 +1,29 @@
+    CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atleta_save`(
+    pnome_atleta VARCHAR(150),
+    pemail VARCHAR(100),
+    pcpf VARCHAR(20),
+    ptelefone VARCHAR(20),
+    pdatanascimento VARCHAR(20),
+    psexo VARCHAR(20),
+    pimg VARCHAR(255),
+    pcep VARCHAR(20),
+    prua VARCHAR(80),
+    pcomplemento VARCHAR(100),
+    pnum INT(10),
+    pbairro VARCHAR(80),
+    pcidade VARCHAR(80),
+    puf VARCHAR(50),
+    pacademia VARCHAR(150),
+    pprofessor VARCHAR(150),
+    pstatus_inscricao INT(5),
+    pdata_registro VARCHAR(30)
+    )
+    BEGIN 
+        
+        INSERT INTO tb_atleta (nome_atleta, email, cpf, telefone, datanascimento, sexo, img, cep, rua, complemento, num, bairro, cidade, uf, academia, professor, status_inscricao, data_registro) 
+                    VALUES (pnome_atleta, pemail, pcpf, ptelefone, pdatanascimento, psexo, pimg, pcep, prua, pcomplemento, pnum, pbairro, pcidade, puf, pacademia, pprofessor, pstatus_inscricao, pdata_registro); 
+        
+                     
+        SELECT * FROM tb_atleta WHERE id_atleta = last_insert_id();
+
+    END

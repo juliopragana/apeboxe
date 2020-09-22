@@ -1,0 +1,43 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_atleta_update`(
+    pnome_atleta VARCHAR(150),
+    pemail VARCHAR(100),
+    pcpf VARCHAR(20),
+    ptelefone VARCHAR(20),
+    pdatanascimento VARCHAR(20),
+    psexo VARCHAR(20),
+    pcep VARCHAR(20),
+    prua VARCHAR(80),
+    pcomplemento VARCHAR(100),
+    pnum INT(10),
+    pbairro VARCHAR(80),
+    pcidade VARCHAR(80),
+    puf VARCHAR(50),
+    pacademia VARCHAR(150),
+    pprofessor VARCHAR(150),
+    pid_atleta INT(5)
+    )
+    BEGIN 
+        
+       
+        UPDATE tb_atleta SET 
+            nome_atleta = pnome_atleta,
+            email = pemail,
+            cpf = pcpf,
+            telefone = ptelefone,
+            datanascimento = pdatanascimento,
+            sexo = psexo,
+            img = pimg,
+            cep = pcep,
+            rua = prua,
+            complemento = pcomplemento,
+            num = pnum,
+            bairro = pbairro,
+            cidade = pcidade,
+            uf = puf,
+            academia = pacademia,
+            professor = pprofessor 
+        WHERE id_atleta = pid_atleta;
+    
+         SELECT * FROM tb_atleta WHERE id_atleta = pid_atleta;
+
+    END

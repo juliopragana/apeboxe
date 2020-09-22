@@ -1,0 +1,17 @@
+CREATE PROCEDURE `sp_usuario_adm_save`(
+pnome VARCHAR(120),
+pusuario VARCHAR (40),
+pemail VARCHAR(100),
+psenha VARCHAR(255),
+pimage VARCHAR (255),
+pstatus_usuario INT(5)
+) 
+BEGIN 
+
+	INSERT INTO tb_usuario (nome, usuario, email, senha, image, status_usuario) 
+				VALUES (pnome, pusuario, pemail, psenha, pimage, pstatus_usuario); 
+
+	SELECT * FROM tb_usuario WHERE id_user = LAST_INSERT_ID();
+
+END
+

@@ -1,0 +1,18 @@
+
+
+create table tb_atleta(
+    id_atleta int AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(100) not null,
+    email varchar(100) not null,
+    telefone varchar(20) not null,
+    datanascimento varchar(20) not null,
+    sexo varchar(20) not null,
+    img varchar (255),
+    cep varchar(20) not null,
+    rua varchar (80) not null,
+    complemento varchar(100),
+    num int(10) not null,
+    bairro varchar(80) not null,
+    cidade varchar (80) not null,
+    uf varchar(50) not null
+);

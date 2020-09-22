@@ -1,0 +1,145 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Painel Inicial
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="/painel-curso"><i class="fa fa-dashboard"></i> Pagina Inicial</a></li>
+            <li class="active">Lista de alunos matriculados</li>
+          </ol>
+        </section>
+      
+         <!-- Content Header (Page header) -->
+         <section class="content">
+          
+      
+        <!--  ############################ TABELA ########################### -->
+       
+          <div class="row">
+            
+            <div class="col-xs-12">
+                <div class="box">
+                  <div class="box-header bg-blue ">
+                    <h3 class="box-title">Lista de Atletas matrículados no curso</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <table id="lista-pendente" class="table table-hover" style="width: 99%">
+                        <thead >
+                            <tr>
+                              <th scope="col" class="bg-blue text-center">ID Atleta</th>
+                              <th scope="col" class="bg-blue text-center">Nome Atleta</th>
+                              <th scope="col" class="bg-blue text-center">CPF</th>
+                              <th scope="col" class="bg-blue text-center">Email</th>
+                              <th scope="col" class="bg-blue text-center">telefone</th>
+                              <th scope="col" class="bg-blue text-center">Data de Nascimento</th>
+                              <th scope="col" class="bg-blue text-center">Sexo</th>
+                              <th scope="col" class="bg-blue text-center">CEP</th>
+                              <th scope="col" class="bg-blue text-center">Rua</th>
+                              <th scope="col" class="bg-blue text-center">Complemento</th>
+                              <th scope="col" class="bg-blue text-center">Número</th>
+                              <th scope="col" class="bg-blue text-center">Bairro</th>
+                              <th scope="col" class="bg-blue text-center">Cidade</th>
+                              <th scope="col" class="bg-blue text-center">UF</th>
+                              <th scope="col" class="bg-blue text-center" >Academia</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                          
+                          {if="$alunos != NULL"}
+                          {loop="$alunos"}
+                            <tr>
+                              <td>{$value.id_atleta}</td>
+                              <td>{$value.nome_atleta}</td>
+                              <td class="text-center">{$value.cpf}</td>
+                              <td class="text-center">{$value.email}</td>
+                              <td class="text-center">{$value.telefone}</td>
+                              <td class="text-center">{$value.datanascimento}</td>
+                              <td class="text-center">{$value.sexo}</td>
+                              <td class="text-center">{$value.cep}</td>
+                              <td class="text-center" >{$value.rua}</td>
+                              <td class="text-center" >{$value.complemento}</td>
+                              <td class="text-center" >{$value.num}</td>
+                              <td class="text-center" >{$value.bairro}</td>
+                              <td class="text-center" >{$value.cidade}</td>
+                              <td class="text-center" >{$value.uf}</td>
+                              <td class="text-center" >{$value.academia}</td>
+
+                              <!-- <td class="text-center" >
+                                  <a href="#" type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a> 
+                                <a href="#" type="button" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a> 
+                                <a href="#" type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a> 
+                               
+                              </td> -->
+                            </tr>
+                            {/loop}
+                            {else}
+                            
+                            {/if}
+                          
+                        </tbody>
+                    </table>
+                    <div class="btn text-right">
+                    <a type="button"  href="/painel-curso" class="btn btn-danger"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                  </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+          
+            
+              </section>  
+      </div> 
+      
+      <script>
+          $(document).ready(function(){
+            $(".btn-aprovar").click(function(event){
+              var aprovar = confirm("Deseja reamente aprovar o pagamento desse boleto?")
+                if(aprovar){
+                  $('.table tbody').on('click', '.btn', function(){
+                    var currow = $(this).closest('tr');
+                    var id_atleta = currow.find('td:eq(0)').text();
+                    var codigo = currow.find('td:eq(5)').text();
+              
+                        
+                    $.ajax({
+                      url: '/aprovar-boleto',
+                      type: 'post',
+                      data: {id_atleta, codigo},
+                      beforeSend: function(){
+                        $('#carregando').fadeIn();
+                      },
+                      success: function(retorno){
+                       if(retorno == 'true'){
+                         alert('Alteração realizada com sucesso!!!')
+                         window.location.reload()
+                       }
+                        if(retorno == 'false'){
+                        alert('deu ruim')
+                        window.location.reload()
+                      }
+                      },
+                      error: function(erro){
+                        $('#resposta').html(erro)
+                        console.log(erro)
+                      }
+                    })
+                  })
+                  
+                } else {
+                  event.preventDefault();
+                }
+      
+            })
+      
+          })
+          
+      </script>
+      
+      
+      
+      
+      
+      
